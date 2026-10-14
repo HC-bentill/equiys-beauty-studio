@@ -263,7 +263,7 @@ document.querySelectorAll('.chapter').forEach((ch, i) => {
 });
 if (!REDUCED) {
   // hero entrance: words rise from a visible resting state
-  gsap.from('#headline, .hero .lead, .hero .ctas, .tags li, .drag-hint', {y:24, opacity:.0001, duration:.9, ease:'power3.out', stagger:.06, clearProps:'all'});
+  gsap.from('.lockup, #headline, .hero .lead, .hero .ctas, .tags li, .drag-hint', {y:24, opacity:.0001, duration:.9, ease:'power3.out', stagger:.06, clearProps:'all'});
   gsap.utils.toArray('.section-head h2').forEach(h => gsap.from(h, {y:40, duration:1, ease:'power3.out', scrollTrigger:{trigger:h, start:'top 90%'}}));
 }
 

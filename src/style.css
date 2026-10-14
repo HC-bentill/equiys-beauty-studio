@@ -214,3 +214,11 @@ footer .brand{color:var(--cream)}
 .g-item.chart img{object-fit:contain;object-position:50% 50%;transform:none!important;padding:10px}
 .lightbox img[src*="hair-"]{background:#f4efe9}
 [hidden]{display:none!important}
+
+/* hero lockup + large CTAs */
+.lockup{font-family:var(--mono);font-size:clamp(.78rem,1.1vw,.9rem);letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}
+.lockup span{color:var(--blush);letter-spacing:0;margin-inline:.3em}
+.hero h1{line-height:.98}
+.btn.lg{padding:16px 26px;font-size:1rem}
+.btn.lg span{font-size:1.15em;line-height:1}
+@media (max-width:480px){.hero .ctas .btn.lg{width:100%;justify-content:center}}

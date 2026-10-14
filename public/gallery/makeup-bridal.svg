@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900" width="900" height="900">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8a5a4c"/><stop offset="1" stop-color="#170c14"/></linearGradient>
+<radialGradient id="glow" cx=".7" cy=".25" r=".7"><stop offset="0" stop-color="#f3cfc6" stop-opacity=".55"/><stop offset="1" stop-color="#f3cfc6" stop-opacity="0"/></radialGradient>
+<linearGradient id="n" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".55"/><stop offset=".3" stop-color="#f3cfc6"/><stop offset="1" stop-color="#8a5a4c"/></linearGradient>
+</defs>
+<rect width="900" height="900" fill="url(#bg)"/><rect width="900" height="900" fill="url(#glow)"/>
+<circle cx="380.0" cy="410.0" r="150" fill="#8a5a4c" opacity=".6"/><circle cx="380.0" cy="410.0" r="118" fill="url(#n)"/><circle cx="340.0" cy="370.0" r="30" fill="#fff" opacity=".25"/><rect x="540.0" y="180.0" width="34" height="300" rx="17" fill="#140a10" transform="rotate(18 557.0 330.0)"/><ellipse cx="510.0" cy="500.0" rx="46" ry="80" fill="#f3cfc6" opacity=".9" transform="rotate(18 510.0 500.0)"/>
+<g transform="translate(450.0 620.0)"><rect x="-150" y="-26" width="300" height="44" rx="22" fill="#170c14" opacity=".55"/><text y="4" text-anchor="middle" font-family="Menlo, monospace" font-size="18" letter-spacing="5" fill="#f6ece6" opacity=".8">PLACEHOLDER PHOTO</text></g>
+</svg>

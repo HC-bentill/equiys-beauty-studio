@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Equiy's Beauty Studio: gel and acrylic nails, manicures and pedicures, hair extensions and makeup.">
+  <meta name="theme-color" content="#170c14">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <title>Equiy's Beauty Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=Manrope:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap">
+</head>
+<body>
+<div id="glow" aria-hidden="true"></div>
+<canvas id="stage" aria-label="A rotating 3D nail polish bottle under a violet UV lamp"></canvas>
+
+<nav>
+  <a class="brand" href="#top"><b>Equiy's</b> Beauty Studio</a>
+  <div class="navlinks">
+    <a href="#story">Studio</a><a href="#shades">Shades</a><a href="#menu">Menu</a><a href="#hair">Hair</a><a href="#gallery">Gallery</a>
+  </div>
+  <a class="btn sm" href="#book">Book a seat</a>
+</nav>
+
+<main id="top">
+  <section class="hero">
+    <div class="hero-inner">
+      <span class="eyebrow">Nails · Hands &amp; feet · Hair · Makeup</span>
+      <h1 id="headline">Polish that <em>holds</em> its <span class="uv">light.</span></h1>
+      <p class="lead">Gel and acrylic sets, manicures and pedicures, hair extensions and makeup in one chair. Come in for one service or leave with the full look.</p>
+      <div class="ctas">
+        <a class="btn" href="#book">Book an appointment</a>
+        <a class="btn ghost" href="#menu">See the menu</a>
+      </div>
+      <ul class="tags"><li>Gel &amp; acrylic</li><li>Nail art</li><li>Manicure</li><li>Pedicure</li><li>Hair extensions</li><li>Makeup</li></ul>
+      <span class="drag-hint"><i></i>Drag the bottle to turn it · scroll to cure it</span>
+    </div>
+  </section>
+
+  <section class="story" id="story">
+    <div class="rail-progress" aria-hidden="true">
+      <span data-i="0">Cure</span><span data-i="1">Shape</span><span data-i="2">Length</span><span data-i="3">Finish</span>
+    </div>
+
+    <article class="chapter" data-i="0">
+      <div class="card">
+        <div class="stage-tag"><b>CURE</b><span class="eyebrow">Nail tech</span></div>
+        <h2>Gel that sets in <em>sixty seconds.</em></h2>
+        <p>Every coat goes under the lamp: base, colour, top. Watch the violet glow rise as you scroll. That is the cure that keeps a gel set glossy and chip-free for weeks.</p>
+        <div class="uvmeter" aria-hidden="true"><i id="uvbar"></i></div>
+        <ul>
+          <li><span>Gel polish, hands</span><span>LED · 60s/coat</span></li>
+          <li><span>Acrylic full set</span><span>Any length</span></li>
+          <li><span>Nail art &amp; chrome</span><span>Per nail or full</span></li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="chapter" data-i="1">
+      <div class="card">
+        <div class="stage-tag"><b>SHAPE</b><span class="eyebrow">Manicure &amp; pedicure</span></div>
+        <h2>Soft hands, <em>clean lines.</em></h2>
+        <p>Cuticle work, filing to your shape (square, almond, coffin or stiletto), a scrub and massage, then a finish in nude, French or the colour of the week.</p>
+        <ul>
+          <li><span>Classic manicure</span><span>Shape · buff · polish</span></li>
+          <li><span>Spa pedicure</span><span>Soak · scrub · massage</span></li>
+          <li><span>Mani + pedi pair</span><span>Same visit</span></li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="chapter" data-i="2">
+      <div class="card">
+        <div class="stage-tag"><b>LENGTH</b><span class="eyebrow">Hair extensions</span></div>
+        <h2>Length you can <em>take home.</em></h2>
+        <p>We sell extensions in the textures people ask for most, from bone straight to kinky curly, and help you match the shade and length before you buy.</p>
+        <ul>
+          <li><span>Bundles &amp; closures</span><span>12″ – 30″</span></li>
+          <li><span>Frontals &amp; wigs</span><span>Ask in store</span></li>
+          <li><span>Texture matching</span><span>Free</span></li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="chapter" data-i="3">
+      <div class="card">
+        <div class="stage-tag"><b>FINISH</b><span class="eyebrow">Makeup</span></div>
+        <h2>The last <em>coat of glow.</em></h2>
+        <p>Soft glam for a dinner, full beat for a wedding or a shoot. Skin prep first, then a finish built to last through photos and the dance floor.</p>
+        <ul>
+          <li><span>Soft glam</span><span>Day &amp; evening</span></li>
+          <li><span>Bridal &amp; events</span><span>Trial available</span></li>
+          <li><span>Lashes</span><span>Strip or cluster</span></li>
+        </ul>
+      </div>
+    </article>
+  </section>
+
+  <div class="solid">
+    <section class="section" id="shades">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">The shade bar</span>
+          <h2>Pick a <em>mood,</em> we'll match the bottle.</h2>
+        </div>
+        <div class="rail-ctrl">
+          <button class="round" id="prev" aria-label="Previous shades">←</button>
+          <button class="round" id="next" aria-label="Next shades">→</button>
+        </div>
+      </div>
+      <div class="rail-wrap"><div class="rail" id="rail" tabindex="0" aria-label="Shade moods, scroll sideways"></div></div>
+    </section>
+
+    <section class="section" id="menu">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Service menu</span>
+          <h2>Hair, <em>priced plainly.</em></h2>
+        </div>
+        <p>Prices are in Ghana cedis. Braiding prices cover workmanship only; bring your own hair or buy extensions from us in the studio.</p>
+      </div>
+      <div class="menu">
+        <div class="menu-col">
+          <h3><small>Workmanship only</small>Braiding</h3>
+          <dl>
+            <div><dt>Shoulder length</dt><dd>GH₵ 150</dd></div>
+            <div><dt>Bra length</dt><dd>GH₵ 200</dd></div>
+            <div><dt>Waist length</dt><dd>GH₵ 250</dd></div>
+            <div><dt>Hip length</dt><dd>GH₵ 300</dd></div>
+            <div><dt>Butt length</dt><dd>GH₵ 350</dd></div>
+            <div><dt>Under butt length</dt><dd>GH₵ 400</dd></div>
+          </dl>
+        </div>
+        <div class="menu-col">
+          <h3><small>Installs &amp; styling</small>Hair installation</h3>
+          <dl>
+            <div><dt>Closure</dt><dd>GH₵ 80</dd></div>
+            <div><dt>Frontal</dt><dd>GH₵ 180–250</dd></div>
+            <div><dt>Sew-in</dt><dd>GH₵ 160</dd></div>
+            <div><dt>Frontal pony</dt><dd>GH₵ 200</dd></div>
+            <div><dt>Styling of wigs</dt><dd>GH₵ 100</dd></div>
+            <div><dt>Half up, half down pony</dt><dd>GH₵ 250</dd></div>
+          </dl>
+        </div>
+      </div>
+      <p class="note">Running late? Message ahead and we'll hold your seat for 15 minutes.</p>
+    </section>
+
+    <section class="section" id="hair">
+      <div class="hair">
+        <div>
+          <span class="eyebrow">Hair extensions</span>
+          <div class="section-head" style="margin-bottom:24px"><h2>Four textures, <em>every length.</em></h2></div>
+          <p style="color:var(--muted);max-width:30rem">Bring a photo of the look you want. We'll help you pick the texture, the shade and how many bundles you need for a full install.</p>
+          <div class="ruler">
+            <div class="ruler-row"><label for="len">Length</label><span id="lenout">18″ · shoulder to bra strap</span></div>
+            <input type="range" id="len" min="10" max="30" step="2" value="18">
+            <div class="ruler-bar" id="lenbar"></div>
+          </div>
+          <div class="lengths" aria-label="Common lengths"><span>12″</span><span>14″</span><span>16″</span><span>18″</span><span>20″</span><span>22″</span><span>24″</span><span>26″</span><span>30″</span></div>
+        </div>
+        <div class="textures">
+          <div class="texture"><svg viewBox="0 0 200 64" aria-hidden="true"><path d="M10 12 H190 M10 26 H190 M10 40 H190 M10 54 H190" stroke="var(--gold)" stroke-width="3" fill="none" stroke-linecap="round"/></svg><h3>Bone straight</h3><p>Sleek, silky and flat-ironed look.</p></div>
+          <div class="texture"><svg viewBox="0 0 200 64" aria-hidden="true"><path d="M10 20 Q55 4 100 20 T190 20 M10 44 Q55 28 100 44 T190 44" stroke="var(--blush)" stroke-width="3" fill="none" stroke-linecap="round"/></svg><h3>Body wave</h3><p>Loose S-waves with soft volume.</p></div>
+          <div class="texture"><svg viewBox="0 0 200 64" aria-hidden="true"><path d="M10 20 Q25 6 40 20 T70 20 T100 20 T130 20 T160 20 T190 20 M10 44 Q25 30 40 44 T70 44 T100 44 T130 44 T160 44 T190 44" stroke="var(--uv)" stroke-width="3" fill="none" stroke-linecap="round"/></svg><h3>Deep wave</h3><p>Tight, defined waves that hold.</p></div>
+          <div class="texture"><svg viewBox="0 0 200 64" aria-hidden="true"><path d="M10 32 c6 -18 14 18 20 0 s14 18 20 0 s14 18 20 0 s14 18 20 0 s14 18 20 0 s14 18 20 0 s14 18 20 0 s14 18 20 0 s14 18 20 0" stroke="var(--cream)" stroke-width="3" fill="none" stroke-linecap="round"/></svg><h3>Kinky curly</h3><p>Blends with natural 4A–4C hair.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="gallery">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Gallery</span>
+          <h2>Fresh from <em>the chair.</em></h2>
+        </div>
+        <div class="g-filters" role="group" aria-label="Filter gallery">
+          <button type="button" class="on" data-f="All">All</button><button type="button" data-f="Nails">Nails</button><button type="button" data-f="Hands &amp; feet">Hands &amp; feet</button><button type="button" data-f="Hair">Hair</button><button type="button" data-f="Makeup">Makeup</button>
+        </div>
+      </div>
+      <div class="g-grid" id="ggrid">
+          <figure class="g-item tall" data-cat="Nails"><button type="button" aria-label="Open Nude almond with gold tips and charms"><img src="/gallery/nails-01.jpg" alt="Nude almond with gold tips and charms" loading="lazy" decoding="async" width="720" height="1280"></button><figcaption><span>Nude almond with gold tips and charms</span><small>Nails</small></figcaption></figure>
+          <figure class="g-item tall" data-cat="Nails"><button type="button" aria-label="Open Red French stilettos"><img src="/gallery/nails-02.jpg" alt="Red French stilettos" loading="lazy" decoding="async" width="720" height="1280"></button><figcaption><span>Red French stilettos</span><small>Nails</small></figcaption></figure>
+          <figure class="g-item tall" data-cat="Nails"><button type="button" aria-label="Open Pink and yellow French with flower art"><img src="/gallery/nails-03.jpg" alt="Pink and yellow French with flower art" loading="lazy" decoding="async" width="720" height="1280"></button><figcaption><span>Pink and yellow French with flower art</span><small>Nails</small></figcaption></figure>
+          <figure class="g-item feature" data-cat="Makeup"><button type="button" aria-label="Open Purple shimmer glam"><img src="/gallery/makeup-01.jpg" alt="Purple shimmer glam" loading="lazy" decoding="async" width="960" height="1280"></button><figcaption><span>Purple shimmer glam</span><small>Makeup</small></figcaption></figure>
+          <figure class="g-item tall" data-cat="Nails"><button type="button" aria-label="Open Black and white swirl French"><img src="/gallery/nails-04.jpg" alt="Black and white swirl French" loading="lazy" decoding="async" width="720" height="1280"></button><figcaption><span>Black and white swirl French</span><small>Nails</small></figcaption></figure>
+          <figure class="g-item feature chart" data-cat="Hair"><button type="button" aria-label="Open Deep wave, spiral and Italian curls: colour chart"><img src="/gallery/hair-01.jpg" alt="Deep wave, spiral and Italian curls: colour chart" loading="lazy" decoding="async" width="1200" height="1280"></button><figcaption><span>Deep wave, spiral and Italian curls: colour chart</span><small>Hair</small></figcaption></figure>
+          <figure class="g-item tall" data-cat="Nails"><button type="button" aria-label="Open Pink almond with heart art"><img src="/gallery/nails-05.jpg" alt="Pink almond with heart art" loading="lazy" decoding="async" width="720" height="1280"></button><figcaption><span>Pink almond with heart art</span><small>Nails</small></figcaption></figure>
+          <figure class="g-item tall" data-cat="Nails"><button type="button" aria-label="Open Blue zebra-stripe French"><img src="/gallery/nails-06.jpg" alt="Blue zebra-stripe French" loading="lazy" decoding="async" width="1024" height="1280"></button><figcaption><span>Blue zebra-stripe French</span><small>Nails</small></figcaption></figure>
+          <figure class="g-item tall" data-cat="Makeup"><button type="button" aria-label="Open Soft glam with bronze lip"><img src="/gallery/makeup-02.jpg" alt="Soft glam with bronze lip" loading="lazy" decoding="async" width="856" height="1280"></button><figcaption><span>Soft glam with bronze lip</span><small>Makeup</small></figcaption></figure>
+          <figure class="g-item tall" data-cat="Nails"><button type="button" aria-label="Open Lime French with 3D flowers"><img src="/gallery/nails-07.jpg" alt="Lime French with 3D flowers" loading="lazy" decoding="async" width="720" height="1280"></button><figcaption><span>Lime French with 3D flowers</span><small>Nails</small></figcaption></figure>
+          <figure class="g-item tall" data-cat="Nails"><button type="button" aria-label="Open Nude stilettos with gold accents"><img src="/gallery/nails-08.jpg" alt="Nude stilettos with gold accents" loading="lazy" decoding="async" width="720" height="1280"></button><figcaption><span>Nude stilettos with gold accents</span><small>Nails</small></figcaption></figure>
+          <figure class="g-item tall" data-cat="Hands &amp; feet"><button type="button" aria-label="Open Red French manicure with gems"><img src="/gallery/nails-09.jpg" alt="Red French manicure with gems" loading="lazy" decoding="async" width="720" height="1280"></button><figcaption><span>Red French manicure with gems</span><small>Hands &amp; feet</small></figcaption></figure>
+          <figure class="g-item tall" data-cat="Makeup"><button type="button" aria-label="Open Natural glam with glossy lip"><img src="/gallery/makeup-04.jpg" alt="Natural glam with glossy lip" loading="lazy" decoding="async" width="720" height="1280"></button><figcaption><span>Natural glam with glossy lip</span><small>Makeup</small></figcaption></figure>
+          <figure class="g-item tall" data-cat="Nails"><button type="button" aria-label="Open Pink French with charms"><img src="/gallery/nails-10.jpg" alt="Pink French with charms" loading="lazy" decoding="async" width="720" height="1280"></button><figcaption><span>Pink French with charms</span><small>Nails</small></figcaption></figure>
+          <figure class="g-item tall" data-cat="Hands &amp; feet"><button type="button" aria-label="Open Short white French manicure"><img src="/gallery/nails-11.jpg" alt="Short white French manicure" loading="lazy" decoding="async" width="720" height="1280"></button><figcaption><span>Short white French manicure</span><small>Hands &amp; feet</small></figcaption></figure>
+          <figure class="g-item tall" data-cat="Nails"><button type="button" aria-label="Open Yellow French with flower details"><img src="/gallery/nails-12.jpg" alt="Yellow French with flower details" loading="lazy" decoding="async" width="720" height="1280"></button><figcaption><span>Yellow French with flower details</span><small>Nails</small></figcaption></figure>
+          <figure class="g-item feature chart" data-cat="Hair"><button type="button" aria-label="Open Bone straight extensions: colour chart"><img src="/gallery/hair-02.jpg" alt="Bone straight extensions: colour chart" loading="lazy" decoding="async" width="1214" height="1199"></button><figcaption><span>Bone straight extensions: colour chart</span><small>Hair</small></figcaption></figure>
+          <figure class="g-item tall" data-cat="Makeup"><button type="button" aria-label="Open Event glam with fascinator"><img src="/gallery/makeup-05.jpg" alt="Event glam with fascinator" loading="lazy" decoding="async" width="720" height="1280"></button><figcaption><span>Event glam with fascinator</span><small>Makeup</small></figcaption></figure>
+          <figure class="g-item tall" data-cat="Hands &amp; feet"><button type="button" aria-label="Open Nude almond manicure, swirl art"><img src="/gallery/nails-13.jpg" alt="Nude almond manicure, swirl art" loading="lazy" decoding="async" width="720" height="1280"></button><figcaption><span>Nude almond manicure, swirl art</span><small>Hands &amp; feet</small></figcaption></figure>
+          <figure class="g-item tall" data-cat="Hands &amp; feet"><button type="button" aria-label="Open Nude almond manicure, gold charms"><img src="/gallery/nails-14.jpg" alt="Nude almond manicure, gold charms" loading="lazy" decoding="async" width="720" height="1280"></button><figcaption><span>Nude almond manicure, gold charms</span><small>Hands &amp; feet</small></figcaption></figure>
+          <figure class="g-item tall" data-cat="Nails"><button type="button" aria-label="Open Black swirl French"><img src="/gallery/nails-15.jpg" alt="Black swirl French" loading="lazy" decoding="async" width="720" height="1280"></button><figcaption><span>Black swirl French</span><small>Nails</small></figcaption></figure>
+          <figure class="g-item tall" data-cat="Makeup"><button type="button" aria-label="Open Soft glam, curly look"><img src="/gallery/makeup-07.jpg" alt="Soft glam, curly look" loading="lazy" decoding="async" width="720" height="1280"></button><figcaption><span>Soft glam, curly look</span><small>Makeup</small></figcaption></figure>
+          <figure class="g-item feature" data-cat="Nails"><button type="button" aria-label="Open Pink coffins with 3D flowers and gold stars"><img src="/gallery/nails-16.jpg" alt="Pink coffins with 3D flowers and gold stars" loading="lazy" decoding="async" width="954" height="1280"></button><figcaption><span>Pink coffins with 3D flowers and gold stars</span><small>Nails</small></figcaption></figure>
+          <figure class="g-item tall" data-cat="Nails"><button type="button" aria-label="Open Orange flame French with rhinestones"><img src="/gallery/nails-17.jpg" alt="Orange flame French with rhinestones" loading="lazy" decoding="async" width="720" height="1280"></button><figcaption><span>Orange flame French with rhinestones</span><small>Nails</small></figcaption></figure>
+          <figure class="g-item tall" data-cat="Nails"><button type="button" aria-label="Open Black and white swirl almonds"><img src="/gallery/nails-18.jpg" alt="Black and white swirl almonds" loading="lazy" decoding="async" width="720" height="1280"></button><figcaption><span>Black and white swirl almonds</span><small>Nails</small></figcaption></figure>
+          <figure class="g-item tall" data-cat="Makeup"><button type="button" aria-label="Open Glam with braids"><img src="/gallery/makeup-08.jpg" alt="Glam with braids" loading="lazy" decoding="async" width="838" height="1280"></button><figcaption><span>Glam with braids</span><small>Makeup</small></figcaption></figure>
+          <figure class="g-item tall" data-cat="Nails"><button type="button" aria-label="Open Graphic swirl French"><img src="/gallery/nails-19.jpg" alt="Graphic swirl French" loading="lazy" decoding="async" width="720" height="1280"></button><figcaption><span>Graphic swirl French</span><small>Nails</small></figcaption></figure>
+          <figure class="g-item tall" data-cat="Nails"><button type="button" aria-label="Open Nude coffins with 3D white flowers"><img src="/gallery/nails-20.jpg" alt="Nude coffins with 3D white flowers" loading="lazy" decoding="async" width="720" height="1280"></button><figcaption><span>Nude coffins with 3D white flowers</span><small>Nails</small></figcaption></figure>
+          <figure class="g-item tall" data-cat="Nails"><button type="button" aria-label="Open Red French with floral art"><img src="/gallery/nails-21.jpg" alt="Red French with floral art" loading="lazy" decoding="async" width="720" height="1280"></button><figcaption><span>Red French with floral art</span><small>Nails</small></figcaption></figure>
+          <figure class="g-item tall" data-cat="Makeup"><button type="button" aria-label="Open Soft glam with vintage waves"><img src="/gallery/makeup-09.jpg" alt="Soft glam with vintage waves" loading="lazy" decoding="async" width="1054" height="1280"></button><figcaption><span>Soft glam with vintage waves</span><small>Makeup</small></figcaption></figure>
+          <figure class="g-item tall" data-cat="Nails"><button type="button" aria-label="Open Black swirls on nude almonds"><img src="/gallery/nails-22.jpg" alt="Black swirls on nude almonds" loading="lazy" decoding="async" width="720" height="1280"></button><figcaption><span>Black swirls on nude almonds</span><small>Nails</small></figcaption></figure>
+          <figure class="g-item tall" data-cat="Nails"><button type="button" aria-label="Open Red and black mixed art"><img src="/gallery/nails-23.jpg" alt="Red and black mixed art" loading="lazy" decoding="async" width="720" height="1280"></button><figcaption><span>Red and black mixed art</span><small>Nails</small></figcaption></figure>
+          <figure class="g-item tall" data-cat="Hands &amp; feet"><button type="button" aria-label="Open Soft white French with flowers"><img src="/gallery/nails-24.jpg" alt="Soft white French with flowers" loading="lazy" decoding="async" width="720" height="1280"></button><figcaption><span>Soft white French with flowers</span><small>Hands &amp; feet</small></figcaption></figure>
+          <figure class="g-item feature" data-cat="Makeup"><button type="button" aria-label="Open Glow glam with finger waves"><img src="/gallery/makeup-10.jpg" alt="Glow glam with finger waves" loading="lazy" decoding="async" width="780" height="1280"></button><figcaption><span>Glow glam with finger waves</span><small>Makeup</small></figcaption></figure>
+          <figure class="g-item tall" data-cat="Nails"><button type="button" aria-label="Open Teal and white mixed art"><img src="/gallery/nails-25.jpg" alt="Teal and white mixed art" loading="lazy" decoding="async" width="720" height="1280"></button><figcaption><span>Teal and white mixed art</span><small>Nails</small></figcaption></figure>
+          <figure class="g-item tall" data-cat="Hands &amp; feet"><button type="button" aria-label="Open White French coffins, pink 3D flowers"><img src="/gallery/nails-26.jpg" alt="White French coffins, pink 3D flowers" loading="lazy" decoding="async" width="720" height="1280"></button><figcaption><span>White French coffins, pink 3D flowers</span><small>Hands &amp; feet</small></figcaption></figure>
+          <figure class="g-item tall" data-cat="Nails"><button type="button" aria-label="Open Pink French coffins with flower charm"><img src="/gallery/nails-27.jpg" alt="Pink French coffins with flower charm" loading="lazy" decoding="async" width="608" height="1080"></button><figcaption><span>Pink French coffins with flower charm</span><small>Nails</small></figcaption></figure>
+          <figure class="g-item tall" data-cat="Makeup"><button type="button" aria-label="Open Golden glow glam"><img src="/gallery/makeup-11.jpg" alt="Golden glow glam" loading="lazy" decoding="async" width="836" height="1280"></button><figcaption><span>Golden glow glam</span><small>Makeup</small></figcaption></figure>
+          <figure class="g-item tall" data-cat="Nails"><button type="button" aria-label="Open Purple and pink outline French"><img src="/gallery/nails-28.jpg" alt="Purple and pink outline French" loading="lazy" decoding="async" width="608" height="1080"></button><figcaption><span>Purple and pink outline French</span><small>Nails</small></figcaption></figure>
+          <figure class="g-item tall" data-cat="Nails"><button type="button" aria-label="Open Gold swirl and white flower art"><img src="/gallery/nails-29.jpg" alt="Gold swirl and white flower art" loading="lazy" decoding="async" width="810" height="1080"></button><figcaption><span>Gold swirl and white flower art</span><small>Nails</small></figcaption></figure>
+          <figure class="g-item tall" data-cat="Nails"><button type="button" aria-label="Open Lilac accents with bows"><img src="/gallery/nails-30.jpg" alt="Lilac accents with bows" loading="lazy" decoding="async" width="960" height="1280"></button><figcaption><span>Lilac accents with bows</span><small>Nails</small></figcaption></figure>
+          <figure class="g-item tall" data-cat="Makeup"><button type="button" aria-label="Open Bridal party glam"><img src="/gallery/makeup-12.jpg" alt="Bridal party glam" loading="lazy" decoding="async" width="798" height="1280"></button><figcaption><span>Bridal party glam</span><small>Makeup</small></figcaption></figure>
+          <figure class="g-item feature" data-cat="Nails"><button type="button" aria-label="Open Black and gold chrome stilettos with pearls"><img src="/gallery/nails-31.jpg" alt="Black and gold chrome stilettos with pearls" loading="lazy" decoding="async" width="960" height="1280"></button><figcaption><span>Black and gold chrome stilettos with pearls</span><small>Nails</small></figcaption></figure>
+          <figure class="g-item tall" data-cat="Nails"><button type="button" aria-label="Open Gold chrome swirls"><img src="/gallery/nails-32.jpg" alt="Gold chrome swirls" loading="lazy" decoding="async" width="960" height="1280"></button><figcaption><span>Gold chrome swirls</span><small>Nails</small></figcaption></figure>
+      </div>
+      <div class="g-more"><button type="button" class="btn ghost" id="gmore">Show more photos</button></div>
+      <p class="note">Tap any photo to see it larger. Follow us on Instagram for new sets every week.</p>
+    </section>
+
+    <dialog class="lightbox" id="lightbox" aria-label="Gallery photo">
+      <img id="lb-img" alt="">
+      <div class="lb-bar">
+        <span id="lb-cap"></span>
+        <div class="lb-btns">
+          <button type="button" class="round" id="lb-prev" aria-label="Previous photo">←</button>
+          <button type="button" class="round" id="lb-next" aria-label="Next photo">→</button>
+          <button type="button" class="round" id="lb-close" aria-label="Close">✕</button>
+        </div>
+      </div>
+    </dialog>
+
+    <section class="section" id="book">
+      <div class="book">
+        <div>
+          <div id="sparkle" aria-hidden="true"></div>
+          <span class="eyebrow">Book a seat</span>
+          <h2>Your hands, <em>our lamp.</em></h2>
+          <p style="color:var(--muted);max-width:28rem;margin-top:18px">Fill in the form and we'll turn it into a message you can send us on WhatsApp. We confirm every booking personally.</p>
+          <dl class="visit">
+            <div><dt>Studio</dt><dd>[ Studio address ]</dd></div>
+            <div><dt>Hours</dt><dd>[ Opening hours ]</dd></div>
+            <div><dt>WhatsApp</dt><dd>[ WhatsApp number ]</dd></div>
+            <div><dt>Instagram</dt><dd>[ @handle ]</dd></div>
+          </dl>
+        </div>
+        <form id="bookform" novalidate>
+          <div class="row">
+            <div class="field"><label for="fname">Your name</label><input id="fname" required placeholder="Ama"></div>
+            <div class="field"><label for="fservice">Service</label>
+              <select id="fservice">
+                <option>Gel polish</option><option>Acrylic full set</option><option>Acrylic refill</option><option>Nail art</option>
+                <option>Manicure</option><option>Pedicure</option><option>Mani + pedi combo</option>
+                <option>Makeup</option><option>Bridal makeup</option><option>Braiding</option><option>Hair installation (closure / frontal / sew-in)</option><option>Wig styling</option><option>Hair extensions (buying)</option>
+              </select></div>
+          </div>
+          <div class="row">
+            <div class="field"><label for="fdate">Date</label><input id="fdate" type="date"></div>
+            <div class="field"><label for="ftime">Time</label><input id="ftime" type="time" value="11:00"></div>
+          </div>
+          <div class="field"><label for="fnotes">Notes</label><textarea id="fnotes" placeholder="Shape, colour, inspiration photo, hair length…"></textarea></div>
+          <button class="btn" type="submit" style="justify-self:start">Prepare my booking message</button>
+          <div class="out" id="out" hidden>
+            <pre id="msg"></pre>
+            <div class="acts">
+              <button class="btn sm" type="button" id="copy">Copy message</button>
+              <a class="btn sm ghost" id="wa" target="_blank" rel="noopener" hidden>Open WhatsApp</a>
+              <small id="copied"></small>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <footer>
+      <span class="brand"><b>Equiy's</b> Beauty Studio</span>
+      <span>Nails · Manicure &amp; pedicure · Hair extensions · Makeup</span>
+    </footer>
+  </div>
+</main>
+<script type="module" src="/src/main.js"></script>
+</body>
+</html>

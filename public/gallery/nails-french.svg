@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900" width="900" height="900">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#a4707a"/><stop offset="1" stop-color="#170c14"/></linearGradient>
+<radialGradient id="glow" cx=".7" cy=".25" r=".7"><stop offset="0" stop-color="#f2d7cf" stop-opacity=".55"/><stop offset="1" stop-color="#f2d7cf" stop-opacity="0"/></radialGradient>
+<linearGradient id="n" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".55"/><stop offset=".3" stop-color="#f2d7cf"/><stop offset="1" stop-color="#a4707a"/></linearGradient>
+</defs>
+<rect width="900" height="900" fill="url(#bg)"/><rect width="900" height="900" fill="url(#glow)"/>
+<rect x="260.0" y="320.0" width="64" height="150" rx="32.0" fill="url(#n)" opacity=".95"/><rect x="274.08" y="338.0" width="12.8" height="60.0" rx="8" fill="#fff" opacity=".35"/><rect x="346.0" y="270.0" width="70" height="200" rx="35.0" fill="url(#n)" opacity=".95"/><rect x="361.4" y="294.0" width="14.0" height="80.0" rx="8" fill="#fff" opacity=".35"/><rect x="438.0" y="255.0" width="72" height="215" rx="36.0" fill="url(#n)" opacity=".95"/><rect x="453.84" y="280.8" width="14.4" height="86.0" rx="8" fill="#fff" opacity=".35"/><rect x="532.0" y="280.0" width="68" height="190" rx="34.0" fill="url(#n)" opacity=".95"/><rect x="546.96" y="302.8" width="13.600000000000001" height="76.0" rx="8" fill="#fff" opacity=".35"/><rect x="622.0" y="340.0" width="56" height="130" rx="28.0" fill="url(#n)" opacity=".95"/><rect x="634.32" y="355.6" width="11.200000000000001" height="52.0" rx="8" fill="#fff" opacity=".35"/>
+<g transform="translate(450.0 620.0)"><rect x="-150" y="-26" width="300" height="44" rx="22" fill="#170c14" opacity=".55"/><text y="4" text-anchor="middle" font-family="Menlo, monospace" font-size="18" letter-spacing="5" fill="#f6ece6" opacity=".8">PLACEHOLDER PHOTO</text></g>
+</svg>

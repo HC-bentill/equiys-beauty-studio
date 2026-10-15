@@ -226,7 +226,7 @@
           <figure class="g-item tall" data-cat="Nails"><button type="button" aria-label="Open Gold chrome swirls"><img src="/gallery/nails-32.jpg" alt="Gold chrome swirls" loading="lazy" decoding="async" width="960" height="1280"></button><figcaption><span>Gold chrome swirls</span><small>Nails</small></figcaption></figure>
       </div>
       <div class="g-more"><button type="button" class="btn ghost" id="gmore">Show more photos</button></div>
-      <p class="note">Tap any photo to see it larger. Follow us on Instagram for new sets every week.</p>
+      <p class="note">Tap any photo to see it larger. Follow us on Instagram <a href="https://www.instagram.com/equiys_beauty_studio/" target="_blank" rel="noopener">@equiys_beauty_studio</a> and TikTok <a href="https://www.tiktok.com/@equiys_beautystudio" target="_blank" rel="noopener">@equiys_beautystudio</a> for new sets every week.</p>
     </section>
 
     <dialog class="lightbox" id="lightbox" aria-label="Gallery photo">
@@ -247,35 +247,44 @@
           <div id="sparkle" aria-hidden="true"></div>
           <span class="eyebrow">Book a seat</span>
           <h2>Your hands, <em>our lamp.</em></h2>
-          <p style="color:var(--muted);max-width:28rem;margin-top:18px">Fill in the form and we'll turn it into a message you can send us on WhatsApp. We confirm every booking personally.</p>
+          <p style="color:var(--muted);max-width:28rem;margin-top:18px">Fill in the form and tap the button. WhatsApp opens with your booking already written out to us on 024 164 7946, so all you do is press send. We confirm every booking personally.</p>
           <dl class="visit">
-            <div><dt>Studio</dt><dd>[ Studio address ]</dd></div>
-            <div><dt>Hours</dt><dd>[ Opening hours ]</dd></div>
-            <div><dt>WhatsApp</dt><dd>[ WhatsApp number ]</dd></div>
-            <div><dt>Instagram</dt><dd>[ @handle ]</dd></div>
+            <div><dt>Studio</dt><dd>New Bortianor, opposite GCB Bank</dd></div>
+            <div><dt>Hours</dt><dd>8:00 am – 7:30 pm</dd></div>
+            <div><dt>WhatsApp</dt><dd><a href="https://wa.me/233241647946" target="_blank" rel="noopener">024 164 7946</a></dd></div>
+            <div><dt>Instagram</dt><dd><a href="https://www.instagram.com/equiys_beauty_studio/" target="_blank" rel="noopener">@equiys_beauty_studio</a></dd></div>
+            <div><dt>TikTok</dt><dd><a href="https://www.tiktok.com/@equiys_beautystudio" target="_blank" rel="noopener">@equiys_beautystudio</a><br><a href="https://www.tiktok.com/@plushhairgh" target="_blank" rel="noopener">@plushhairgh</a></dd></div>
+            <div><dt>Snapchat</dt><dd><a href="https://www.snapchat.com/add/ms_boamah15" target="_blank" rel="noopener">ms_boamah15</a></dd></div>
           </dl>
         </div>
         <form id="bookform" novalidate>
           <div class="row">
-            <div class="field"><label for="fname">Your name</label><input id="fname" required placeholder="Ama"></div>
+            <div class="field"><label for="fname">Your name</label><input id="fname" required autocomplete="name" placeholder="Ama Mensah"></div>
+            <div class="field"><label for="fphone">Your phone number</label><input id="fphone" type="tel" required autocomplete="tel" inputmode="tel" placeholder="024 000 0000"></div>
+          </div>
+          <div class="row">
             <div class="field"><label for="fservice">Service</label>
               <select id="fservice">
                 <option>Gel polish</option><option>Acrylic full set</option><option>Acrylic refill</option><option>Nail art</option>
                 <option>Manicure</option><option>Pedicure</option><option>Mani + pedi combo</option>
                 <option>Makeup</option><option>Bridal makeup</option><option>Braiding</option><option>Hair installation (closure / frontal / sew-in)</option><option>Wig styling</option><option>Hair extensions (buying)</option>
               </select></div>
+            <div class="field"><label for="fdate">Date</label><input id="fdate" type="date" required></div>
           </div>
           <div class="row">
-            <div class="field"><label for="fdate">Date</label><input id="fdate" type="date"></div>
-            <div class="field"><label for="ftime">Time</label><input id="ftime" type="time" value="11:00"></div>
+            <div class="field"><label for="ftime">Preferred time</label><input id="ftime" type="time" value="11:00" required></div>
+            <div class="field"><label for="fwhere">Where</label>
+              <select id="fwhere"><option>At the studio</option><option>Home service</option></select></div>
           </div>
           <div class="field"><label for="fnotes">Notes</label><textarea id="fnotes" placeholder="Shape, colour, inspiration photo, hair length…"></textarea></div>
-          <button class="btn" type="submit" style="justify-self:start">Prepare my booking message</button>
+          <p class="ferr" id="ferr" role="alert"></p>
+          <button class="btn" type="submit" style="justify-self:start">Send booking on WhatsApp</button>
           <div class="out" id="out" hidden>
             <pre id="msg"></pre>
             <div class="acts">
-              <button class="btn sm" type="button" id="copy">Copy message</button>
-              <a class="btn sm ghost" id="wa" target="_blank" rel="noopener" hidden>Open WhatsApp</a>
+              <a class="btn sm" id="wa" target="_blank" rel="noopener">Open WhatsApp again</a>
+              <a class="btn sm ghost" id="sms">Send as SMS instead</a>
+              <button class="btn sm ghost" type="button" id="copy">Copy message</button>
               <small id="copied"></small>
             </div>
           </div>
@@ -285,7 +294,8 @@
 
     <footer>
       <span class="brand"><b>Equiy's</b> Beauty Studio &amp; Plush Hair GH</span>
-      <span>Nails · Manicure &amp; pedicure · Hair extensions · Makeup</span>
+      <span>New Bortianor, opposite GCB Bank · 8:00 am – 7:30 pm</span>
+      <span class="socials"><a href="https://www.instagram.com/equiys_beauty_studio/" target="_blank" rel="noopener">Instagram</a> · <a href="https://www.tiktok.com/@equiys_beautystudio" target="_blank" rel="noopener">TikTok</a> · <a href="https://www.tiktok.com/@plushhairgh" target="_blank" rel="noopener">Plush Hair GH on TikTok</a> · <a href="https://www.snapchat.com/add/ms_boamah15" target="_blank" rel="noopener">Snapchat</a></span>
     </footer>
   </div>
 </main>

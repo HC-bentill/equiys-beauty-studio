@@ -222,3 +222,7 @@ footer .brand{color:var(--cream)}
 .btn.lg{padding:16px 26px;font-size:1rem}
 .btn.lg span{font-size:1.15em;line-height:1}
 @media (max-width:480px){.hero .ctas .btn.lg{width:100%;justify-content:center}}
+.ferr{color:#ff9db0;font-size:.9rem;min-height:1.2em;margin:0}
+.visit dd a{color:var(--blush);text-decoration:none;border-bottom:1px solid currentColor}
+.note a,footer a{color:var(--blush);text-decoration:none;border-bottom:1px solid currentColor}
+.socials{display:flex;flex-wrap:wrap;gap:6px}

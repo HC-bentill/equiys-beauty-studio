@@ -7,7 +7,7 @@ import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 import './style.css';
 
 const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
-const WHATSAPP = ''; // e.g. '233201234567' — digits only, with country code
+const WHATSAPP = '233241647946'; // bookings go to 024 164 7946 (digits only, with Ghana's 233 code)
 
 /* ---------------- Three.js stage ---------------- */
 const canvas = document.getElementById('stage');
@@ -367,14 +367,35 @@ if (!REDUCED) {
 const fdate = document.getElementById('fdate');
 const d = new Date(); d.setDate(d.getDate()+1); fdate.value = d.toISOString().slice(0,10);
 const out = document.getElementById('out'), msg = document.getElementById('msg'), wa = document.getElementById('wa'), copied = document.getElementById('copied');
+const val = id => document.getElementById(id).value.trim();
+const ferr = document.getElementById('ferr'), sms = document.getElementById('sms');
 document.getElementById('bookform').addEventListener('submit', e => {
   e.preventDefault();
-  const name = document.getElementById('fname').value.trim() || 'a new client';
-  const when = fdate.value ? new Date(fdate.value + 'T00:00').toLocaleDateString(undefined, {weekday:'long', day:'numeric', month:'long'}) : 'a date that suits you';
-  const notes = document.getElementById('fnotes').value.trim();
-  const text = `Hi Equiy's Beauty Studio, this is ${name}.\nI'd like to book: ${document.getElementById('fservice').value}\nWhen: ${when} at ${document.getElementById('ftime').value || 'any time'}${notes ? `\nNotes: ${notes}` : ''}\nPlease confirm if that slot is free. Thank you!`;
+  const name = val('fname'), phone = val('fphone');
+  const missing = [!name && 'your name', phone.replace(/\D/g, '').length < 9 && 'a phone number we can reach you on', !fdate.value && 'a date'].filter(Boolean);
+  if (missing.length) { ferr.textContent = `Please add ${missing.join(' and ')}.`; (document.getElementById(!name ? 'fname' : (!fdate.value && phone.replace(/\D/g,'').length >= 9) ? 'fdate' : 'fphone')).focus(); return; }
+  ferr.textContent = '';
+  const when = new Date(fdate.value + 'T00:00').toLocaleDateString('en-GB', {weekday:'long', day:'numeric', month:'long', year:'numeric'});
+  const time = val('ftime') || 'any time';
+  const notes = val('fnotes');
+  const text = [
+    "NEW BOOKING - Equiy's Beauty Studio",
+    '',
+    `Name: ${name}`,
+    `Phone: ${phone}`,
+    `Service: ${val('fservice')}`,
+    `Date: ${when}`,
+    `Time: ${time}`,
+    `Where: ${val('fwhere')}`,
+    notes ? `Notes: ${notes}` : null,
+    '',
+    'Sent from the EBS and Plush Hair GH website. Please confirm if this slot is free.'
+  ].filter(l => l !== null).join('\n');
   msg.textContent = text; out.hidden = false; copied.textContent = '';
-  if (WHATSAPP) { wa.href = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(text)}`; wa.hidden = false; }
+  const waUrl = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(text)}`;
+  wa.href = waUrl;
+  sms.href = `sms:+${WHATSAPP}?&body=${encodeURIComponent(text)}`;
+  window.open(waUrl, '_blank', 'noopener');
 });
 document.getElementById('copy').addEventListener('click', () => {
   const sel = () => { const r = document.createRange(); r.selectNodeContents(msg); const s = getSelection(); s.removeAllRanges(); s.addRange(r); copied.textContent = 'Selected. Press copy on your keyboard.'; };
